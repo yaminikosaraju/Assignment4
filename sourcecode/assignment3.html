@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Assignment 3 - Delano Thomas(201990704) | Yamini Kosaraju(201892752) - Grp 12</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="Bootstrap/bootstrap.min.css" rel="stylesheet" >
+    <link rel="shortcut icon" href="#">
+
+    <script id="vertex-shader" type="x-shader/x-vertex">
+
+        attribute vec4 vPosition;
+        uniform mat4 transform;
+        uniform mat4 modelViewMatrix;
+        uniform mat4 projectionMatrix;
+    
+        void main(){
+
+            gl_Position = projectionMatrix * modelViewMatrix * transform *  vPosition;
+        }
+
+    </script>
+    
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        precision mediump float;
+        uniform vec4 fColor;
+        
+        
+        void main(){
+
+            gl_FragColor = fColor;
+        }
+    </script>
+
+    <script type="text/javascript" src="Common/webgl-utils.js"></script>
+    <script type="text/javascript" src="Common/initShaders.js"></script>
+    <script type="text/javascript" src="Common/MV.js"></script>
+    <script type="text/javascript" src="functionsControl.js"></script>
+    <script type="text/javascript" src="Shapes.js"></script>
+    
+</head>
+
+<body>
+
+    <header>
+        <br>
+        <div class="row">
+
+            <div class="col-1"></div>
+            <div class="col-8" style="font-size: 16px;">
+
+                </h1><b> Group:</b> 12</h1><br>
+                </h1><b> Student Names:</b> Delano Thomas, Yamini Kosaraju</h1><br>
+                </h1><b> Student ID:</b> 2019090704, 201892752</h1><br>
+                </h1><b> Student Emails:</b> dmthomas@mun.ca, ykosaraju@mun.ca</h1><br>
+                </h1><b>Course:</b> Computer Graphics - COMP6909</h1><br>
+                </h1><b> Assignment 3:</b> Transformation, Navigation and Projections.</h1>
+
+            </div>
+            <div class="col-3"></div>
+        </div>
+        <br>
+    </header>
+
+
+    <div class="container">
+        <div class="row">
+
+            <br>
+            <hr>
+            
+            <div class="col-8">
+
+                <canvas id="gl-canvas" width="768" height="512" style="border-color: black; border-width: 2px; border-style:solid;">
+                    Oops ... your browser doesn't support the HTML5 canvas element
+                </canvas>
+
+                <br>
+                <br>
+                <b>KEY:</b>
+                <br><b style="color: red;">Object 1</b> - Rotation about z-axis
+                <br><b style="color: green;">Object 2</b> - Random Transalation
+                <br><b style="color: fuchsia;">Object 3</b> - Non-uniform scaling
+                <br><b style="color: blue;">Object 4</b> - Uniform scaling
+                <br><b style="color: black;">Object 5</b> - Translate between points A & B
+
+            </div>
+
+            <div class="col-4" style="background-color:whitesmoke;">
+
+                <!-- Instructions on how to use the app-->
+                <br>
+                <b>INSTRUCTIONS:</b>
+                <br>Please press the appropriate key to control the featured animation.
+                <p><pre>
+    <b>Press 1</b> - Toggle the animation of the object "1"
+    <b>Press 2</b> - Toggle the animation of the object "2"
+    <b>Press 3</b> - Toggle the animation of the object "3"
+    <b>Press 4</b> - Toggle the animation of the object "4"
+    <b>Press 5</b> - Toggle the animation of the object "5"
+
+    <b>Press O</b> - Switch to Orthographic View
+    <b>Press P</b> - Switch to Perspective View
+    
+    <b>Press W</b> - Move Forward
+    <b>Press A</b> - Move Backward
+    <b>Press S</b> - Rotate to the Left
+    <b>Press D</b> - Rotate to the Right
+    <b>Press E</b> - Look Up
+    <b>Press Q</b> - Look Down
+                 </pre></p>
+
+                 <b>List of Keys pressed:</b><br>
+                 <textarea name="textarea" id="keyPressedTextArea"
+                    rows="10" cols="50"
+                    disabled></textarea>
+
+            </div>
+        </div>
+    
+
+        <hr>
+        <div class="row"> <br> </div>
+        <div class="row"> <br> </div>
+    </div>
+
+
+    <!-- Bootstrap Bundle with Popper -->
+     <script src="Bootstrap/jquery-3.5.1.slim.min.js" type="text/javascript"></script>
+     <script src="Bootstrap/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+</body>
+</html>
